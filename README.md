@@ -90,3 +90,65 @@
         }
       },
     ```
+## Eslint 설정하기
+- VScode에 Eslint plugin(extension)을 설치한다.
+- 프로젝트로 들어가서 패키지를 설치한다.
+  ```cmd
+  npm i -D eslint eslint-plugin-vue babel-eslint
+  ```
+- .eslintrc.js를 만든다.
+  ```js
+  module.exports = {
+    env: {
+      browser: true,
+      node: true
+    },
+    extends: [
+      // vue
+      // 'plugin:vue/vue3-essential', // level1
+      'plugin:vue/vue3-strongly-recommended', // level2
+      // 'plugin:vue/vue3-recommended', // level3
+      // js
+      'eslint:recommended'
+    ],
+    parserOptions: {
+      parser: 'babel-eslint'
+    },
+    rules: {
+
+    }
+  }
+  ```
+- Eslint 확인
+  ![image](https://user-images.githubusercontent.com/62678380/121776755-97c3f900-cbc9-11eb-88ab-a220fe65f49c.png)
+- ```eslint(vue/html-self-closing)```을 클릭해보면 페이지가 연결된다.
+  ![image](https://user-images.githubusercontent.com/62678380/121776820-ed000a80-cbc9-11eb-81e3-e2c7d9440a0a.png)
+- options의 코드를 rules에 넣어준다.
+  ```js
+  rules: {
+   "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "always",
+        "normal": "never",
+        "component": "always"
+      },
+      "svg": "always",
+      "math": "always"
+    }]
+  }
+  ```
+- Eslint 적용되어 있는 것을 확인 할 수 있다.
+  ![image](https://user-images.githubusercontent.com/62678380/121777025-f9d12e00-cbca-11eb-92ce-4d27bbedc186.png)
+
+- 저장 후 Eslint fix 기능을 설정한다.   
+  ctrl+shift+p -> settings.json
+  ```json
+    {
+    "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": true 
+      }
+    }
+
+  ```
+- 저장하면 자동으로 fix된다
+- Eslint로 코드 규칙을 설정해 동일한 규칙으로 코딩하자
