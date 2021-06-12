@@ -152,3 +152,42 @@
   ```
 - 저장하면 자동으로 fix된다
 - Eslint로 코드 규칙을 설정해 동일한 규칙으로 코딩하자
+
+## Single File Component
+*.vue 파일의 형식
+```html
+<!-- HTML -->
+  <template>
+    <h1 @click="increase">
+      {{ count }}
+    </h1>
+    <button @click="increase">
+      ++
+    </button>
+  </template>
+
+<!-- JS -->
+  <script>
+  export default {
+    data: function() {
+      return {
+        count: 1
+      }
+    },
+    methods: {
+      increase: function() {
+        this.count +=1
+      }
+    }
+  }
+  </script>
+
+<!-- CSS -->
+  <style>
+    h1 {
+    font-size: 50px;
+    color: royalblue; 
+    }
+
+  </style>
+```
