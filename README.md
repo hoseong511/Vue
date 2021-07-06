@@ -235,4 +235,51 @@
   ![](https://v3.ko.vuejs.org/images/lifecycle.svg)
 - created: 데이터에 접근 가능
 - mounted: Html 요소에 접근 가능
+
 ### **2.2 템플릿 문법** 
+- 보간법
+  - 문자열
+    - 데이터 바인딩의 가장 기본 형태 **"Mustache"(이중 중괄호 구문)**기법을 사용한 문자열 보간법입니다.
+      ```html
+        <span>메시지: {{ msg }}</span>
+      ```
+    - v-once 디렉티브: 최초 렌더링 된 상태로 고정
+      ```html
+        <span v-once>최초 상태로 고정: {{ msg }}</span>
+      ```
+  - 원시 HTML
+    - 이중 중괄호는 데이터를 HTML이 아닌 일반 텍스트로 읽어들이기에 실제 HTML 태그를 출력하려면 v-html을 사용해야합니다.
+    - v-html 디렉티브: 태그가 포함된 문자열을 이용할 때
+      ```html
+        <p>이중 중괄호 사용: {{ rawHtml }}</p>
+        <p>v-html 디렉티브 사용: <span v-html="rawHtml"></span></p>
+      ```
+  - 속성
+   - v-bind 디렉티브: 속성을 연결 시킬 때
+    ```html
+      <div v-bind:id="dynamicId"></div>
+    ```
+  - 약어
+    - v-bind
+      ```html
+        <!-- 전체 문법 -->
+        <a v-bind:href="url"> ... </a>
+
+        <!-- 약어 -->
+        <a :href="url"> ... </a>
+
+        <!-- 동적 전달인자와 함께 쓴 약어 -->
+        <a :[key]="url"> ... </a>
+      ```  
+    - v-on
+      ```html
+        <!-- 전체 문법 -->
+        <a v-on:click="doSomething"> ... </a>
+
+        <!-- 약어 -->
+        <a @click="doSomething"> ... </a>
+
+        <!-- 동적 전달인자와 함께 쓴 약어 -->
+        <a @[event]="doSomething"> ... </a>
+      ```
+ 
