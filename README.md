@@ -6,12 +6,32 @@
 
 ## **CONTENTS**
 ### 1. Getting Started
-- basic-cdn
-- vue-cli
-- webpack으로 vue 구성하기
+01. basic-cdn
+02. vue-cli
+03. webpack으로 vue 구성하기
+
 ### 2. Vue syntax
-- create Application Instance
-- 
+01. 인스턴스와 라이프사이클
+02. 템플릿 문법
+03. Computed
+04. Computed 캐싱
+05. Getter, Setter
+06. Watch
+07. 클래스와 스타일 바인딩
+08. 조건부 렌더링
+09. 리스트 렌더링
+10. 이벤트 핸들링
+11. 이벤트 핸들링 - 이벤트 수식어
+12. 이벤트 핸들링 - 키 수식어
+13. 폼 입력 바인딩
+14. v-model 수식어
+15. 컴포넌트 - 기초
+16. 컴포넌트 - 속성 상속
+17. 컴포넌트 - Emit
+18. 컴포넌트 - Slot
+19. 컴포넌트 - Provide, Inject
+20. 컴포넌트 - Refs
+
 -----
 ## **1. Getting Started**
 ### **1.1 basic-cdn**
@@ -106,7 +126,7 @@
         }
       },
     ```
-## Eslint 설정하기
+### **1.4 Eslint 설정하기**
 - VScode에 Eslint plugin(extension)을 설치한다.
 - 프로젝트로 들어가서 패키지를 설치한다.
   ```cmd
@@ -207,3 +227,12 @@
 
   </style>
 ```
+## **2. Vue syntax**
+### **2.1 인스턴스와 라이프사이클**
+- 어플리케이션 인스턴스 생성하기
+- 최상위(root) 컴포넌트
+- 라이프사이클 
+  ![](https://v3.ko.vuejs.org/images/lifecycle.svg)
+- created: 데이터에 접근 가능
+- mounted: Html 요소에 접근 가능
+### **2.2 템플릿 문법** 
