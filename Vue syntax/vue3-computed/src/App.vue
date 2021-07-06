@@ -1,12 +1,26 @@
 <template>
-  <Fruits />
+  <h1>{{ reversedMessage }}</h1>
+  <h1>{{ reversedMessage }}</h1>
+  <h1>{{ reversedMessage }}</h1>
+  <h1>{{ reversedMessage }}</h1>
 </template>
 
 <script>
-import Fruits from '~/components/Fruits'
 export default {
-  components: {
-    Fruits
+  data() {
+    return {
+      msg: 'hello computed'
+    }
+  },
+  computed: {
+    reversedMessage() {
+      return this.msg.spit('').reverse().join('')
+    }
+  },
+  methods: {
+    reverseMessage() {
+      return this.msg.spit('').reverse().join('')
+    }
   }
 }
 </script>
