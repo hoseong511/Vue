@@ -5,6 +5,9 @@
   <button @click="increase">
     ++
   </button>
+  <button @click="decrease">
+    --
+  </button>
 </template>
 
 <script>
@@ -17,6 +20,9 @@ export default {
   methods: {
     increase: function() {
       this.count +=1
+    },
+    decrease: function() {
+      this.count -=1
     }
   }
 }

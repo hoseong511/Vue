@@ -1,4 +1,20 @@
-## basic-cdn
+  <strong><h1 align="center">Vue.js</h1></strong>
+  <div align="center">
+    <img src="https://kr.vuejs.org/images/logo.png" width= 20%; alt="Vue.js" />
+  </div>
+  <br>
+
+## **CONTENTS**
+### 1. Getting Started
+- basic-cdn
+- vue-cli
+- webpack으로 vue 구성하기
+### 2. Vue syntax
+- create Application Instance
+- 
+-----
+## **1. Getting Started**
+### **1.1 basic-cdn**
 - cdn을 이용해서 간단하게 vue의 원리를 살펴본다.
 - [vue.js](https://v3.vuejs.org/guide/installation.html#cdn)에서 cdn ```<script src="https://unpkg.com/vue@next"></script>```을 이용
   ```html
@@ -28,7 +44,7 @@
   </html>
   ```
 
-## vue-cli
+### **1.2 vue-cli**
 - vue-cli로 vue시작하기
   ```cmd
   npm i @vue/cli
@@ -39,7 +55,7 @@
   ```
 - Vetur 플러그인 추가
 
-## webpack으로 vue 구성하기
+### **1.3 webpack으로 vue 구성하기**
 - 기존에 만들어 놓았던 [webpack-template](https://github.com/hoseong511/bundler-basic-app)를 이용한다.
   ```cmd
     npx degit hoseong511/bundler-basic-app vue3-webpack-template

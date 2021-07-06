@@ -49,16 +49,17 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({
-      template: './index.html'
+      template: './public/index.html'
     }),
     new CopyPlugin({
       patterns: [
-        { from: 'static'}
+        { from: 'public/static'}
       ]
     }),
     new VueLoaderPlugin()
   ],
   devServer: {
-    host: 'localhost'
+    host: 'localhost',
+    open: true,
   }
 } 

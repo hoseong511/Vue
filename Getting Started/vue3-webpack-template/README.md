@@ -2,6 +2,11 @@
 ```cmd
 npx degit hoseong511/vue3-webpack-template [Project name]
 ```
+## Run
+```npm run dev```: webpack-dev-server --mode development
+## Build
+```npm run build```: webpack --mode production
+
 ## package.json
   ```json
   {
