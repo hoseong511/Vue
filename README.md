@@ -255,10 +255,10 @@
         <p>v-html 디렉티브 사용: <span v-html="rawHtml"></span></p>
       ```
   - 속성
-   - v-bind 디렉티브: 속성을 연결 시킬 때
-    ```html
-      <div v-bind:id="dynamicId"></div>
-    ```
+    - v-bind 디렉티브: 속성을 연결 시킬 때
+      ```html
+        <div v-bind:id="dynamicId"></div>
+      ```
   - 약어
     - v-bind
       ```html
@@ -282,4 +282,59 @@
         <!-- 동적 전달인자와 함께 쓴 약어 -->
         <a @[event]="doSomething"> ... </a>
       ```
- 
+### **2.3 Computed** 
+- 템플릿 내에 표현식을 넣어 연산을 하면 코드가 지저분해지고 유지보수가 어렵게 됩니다. 이를 위한 속성입니다.  
+- 템플릿 내에 표현식
+  ```html
+  <div id="computed-basics">
+    <p>출판된 책:</p>
+    <span>{{ author.books.length > 0 ? '있음' : '없음' }}</span>
+  </div>
+  
+  ```
+  ```js
+    Vue.createApp({
+      data() {
+        return {
+          author: {
+            name: '존 도우',
+            books: [
+              'Vue 2 - Advanced Guide',
+              'Vue 3 - Basic Guide',
+              'Vue 4 - The Mystery'
+            ]
+          }
+        }
+      }
+    })
+  ```
+  - computed 사용
+    ```html
+      <div id="computed-basics">
+        <p>출판된 책:</p>
+        <span>{{ publishedBooksMessage }}</span>
+      </div>
+    ```
+    ```js
+    Vue.createApp({
+      data() {
+        return {
+          author: {
+            name: '존 도우',
+            books: [
+              'Vue 2 - Advanced Guide',
+              'Vue 3 - Basic Guide',
+              'Vue 4 - The Mystery'
+            ]
+          }
+        }
+      },
+      computed: {
+        // computed getter
+        publishedBooksMessage() {
+            // 여기서의 `this` 는 vm 인스턴스이다.
+            return this.author.books.length > 0 ? '있음' : '없음'
+          }
+        }
+      }).mount('#computed-basics')
+    ```
