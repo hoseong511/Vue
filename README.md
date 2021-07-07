@@ -341,3 +341,22 @@
 ### **2.4 Computed 캐싱** 
 - computed 속성에는 캐싱기능이 있습니다. 이를 활용한다면 한번 연산된 결과로 다음에도 이용할 수 있습니다. (메서드와 달리)
 
+### **2.5 Getter Setter
+- Computed 속성은 기본적으로 getter 이지만, 필요할 때엔 setter도 제공합니다.
+  ```js
+    computed: {
+      fullName: {
+        // getter
+        get() {
+          return this.firstName + ' ' + this.lastName
+        },
+        // setter
+        set(newValue) {
+          const names = newValue.split(' ')
+          this.firstName = names[0]
+          this.lastName = names[names.length - 1]
+        }
+      }
+    }
+  ```
+- ```this.fullName = 'John Doe'```를 실행하면, setter가 호출됩니다. 
