@@ -14,12 +14,12 @@ export default {
   },
   computed: {
     reversedMessage() {
-      return this.msg.spit('').reverse().join('')
+      return this.msg.split('').reverse().join('')
     }
   },
   methods: {
     reverseMessage() {
-      return this.msg.spit('').reverse().join('')
+      return this.msg.split('').reverse().join('')
     }
   }
 }
