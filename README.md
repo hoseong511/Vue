@@ -360,3 +360,52 @@
     }
   ```
 - ```this.fullName = 'John Doe'```를 실행하면, setter가 호출됩니다. 
+
+### **2.6 Watch**
+- Vue는 현재 활성화된 인스턴스에서 데이터 변경을 관찰하고 이에 반응하는 좀 더 일반적인 방법인 watch를 제공합니다. 
+  ```html
+    <div id="watch-example">
+      <p>
+        예/아니오 질문을 물어보세요.
+        <input v-model="question" />
+      </p>
+      <p>{{ answer }}</p>
+    </div>
+  ```
+  ```html
+    <!-- 이미 Ajax 라이브러리의 풍부한 생태계와 범용 유틸리티 메소드 컬렉션이 있기 때문에, -->
+    <!-- Vue 코어는 다시 만들지 않아 작게 유지됩니다. -->
+    <!-- 이것은 이미 익숙한 것을 선택할 수 있는 자유를 줍니다. -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script>
+      const watchExampleVM = Vue.createApp({
+        data() {
+          return {
+            question: '',
+            answer: '질문은 보통 물음표를 포합합니다. ;-)'
+          }
+        },
+        watch: {
+          // question 이 변경될 때마다, 이 함수가 실행될 것 입니다.
+          question(newQuestion, oldQuestion) {
+            if (newQuestion.indexOf('?') > -1) {
+              this.getAnswer()
+            }
+          }
+        },
+        methods: {
+          getAnswer() {
+            this.answer = '생각중...'
+            axios
+              .get('https://yesno.wtf/api')
+              .then(response => {
+                this.answer = response.data.answer
+              })
+              .catch(error => {
+                this.answer = '에러! API에 닿지 못했습니다. ' + error
+              })
+          }
+        }
+      }).mount('#watch-example')
+    </script>
+```

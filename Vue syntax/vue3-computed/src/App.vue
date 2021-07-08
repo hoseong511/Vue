@@ -6,6 +6,7 @@
   <h1>{{ reversedMessage }}</h1>
   <h1>{{ reversedMessage }}</h1>
   <h1>{{ reversedMessage }}</h1>
+  <!-- https://eslint.vuejs.org/rules/no-multiple-template-root.html -->
 </template>
 
 <script>
@@ -28,6 +29,14 @@ export default {
       set(value) {
         this.msg = value
       }
+    }
+  },
+  watch: {
+    msg(value) {
+      console.log('msg: ', this.msg, value);
+    },
+    reversedMessage(value) {
+      console.log(value);
     }
   },
   methods: {
